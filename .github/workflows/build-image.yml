@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
 env:
-  IMAGE_ID: "${{ github.repository_owner }}/nginx-php" 
+  IMAGE_ID: "ghcr.io/megathorx/nginx-php" 
 
 jobs:
   push:
@@ -32,7 +32,7 @@ jobs:
           platforms: "linux/amd64,linux/arm64"
           pull: true
           push: true
-          tags: "ghcr.io/${{ env.IMAGE_ID }}:7.4"
+          tags: "${{ env.IMAGE_ID }}:7.4"
           github-token: ${{ github.token }}
       
       - name: Build and push Docker images for 8.0
@@ -44,7 +44,7 @@ jobs:
           platforms: "linux/amd64,linux/arm64"
           pull: true
           push: true
-          tags: "ghcr.io/${{ env.IMAGE_ID }}:8.0"
+          tags: "${{ env.IMAGE_ID }}:8.0"
           github-token: ${{ github.token }}
       
       - name: Build and push Docker images for 8.1
@@ -56,7 +56,7 @@ jobs:
           platforms: "linux/amd64,linux/arm64"
           pull: true
           push: true
-          tags: "ghcr.io/${{ env.IMAGE_ID }}:8.1"
+          tags: "${{ env.IMAGE_ID }}:8.1"
           github-token: ${{ github.token }}
       
       - name: Build and push Docker images for 8.2
@@ -68,5 +68,5 @@ jobs:
           platforms: "linux/amd64,linux/arm64"
           pull: true
           push: true
-          tags: "ghcr.io/${{ env.IMAGE_ID }}:8.2,ghcr.io/${{ env.IMAGE_ID }}:latest"
+          tags: "${{ env.IMAGE_ID }}:8.2,${{ env.IMAGE_ID }}:latest"
           github-token: ${{ github.token }}
