@@ -44,7 +44,7 @@ RUN docker-php-ext-configure gd \
     pecl install imagick && \
     pecl install redis && \
     docker-php-ext-enable imagick redis && \
-    docker-php-ext-install pdo_mysql pdo_sqlite mysqli gd exif intl xsl soap dom zip opcache && \
+    docker-php-ext-install pdo_mysql pdo_sqlite mysqli gd gmp exif intl xsl soap dom zip opcache && \
     docker-php-source delete && \
     mkdir -p /run/nginx && \
     apk del gcc musl-dev linux-headers libffi-dev augeas-dev python3-dev make autoconf
